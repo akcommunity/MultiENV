@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <title>Configure</title>
+</html>
+
+<script src="popup.js"></script>
+<body> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  
+    table, th, td {
+        border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 100px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+thead tr {
+    background-color: #cff2eb;
+    color: #000000;
+    text-align: left;
+}
+th, td {
+    padding: 12px 15px;
+}
+ tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+ tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+tbody tr:last-of-type {
+    border-bottom: 2px solid #cff2eb;
+}
+</style> 
+<link rel="stylesheet" href="popup.css">
+
+    <!-- multistep form -->
+<form id="msform">
+    <!-- progressbar -->
+    
+    <!-- fieldsets -->
+     
+    <fieldset>
+      <h2 class="fs-title">New Configuration</h2>
+      <h3 class="fs-subtitle">Add an Azure or AWS Environment</h3>
+     <select id="cloudProvider">
+          <option value="aws">AWS</option>
+          <option value="azure">Azure</option>
+        
+      </select>
+      <input type="text" id="envName" placeholder="ENV Name: STG,DEV,QA,PRD" />
+      <input type="text" id="customLabel" placeholder="Custom Label" />
+      <div class="form-group">
+ 
+       <label for="blur" style="display: inline-block; width: 250px;">Blur Account Information (temp)</label>
+        <input type="checkbox" id="blur" name="blur" value="blur" style="display: inline-block; width: 100px;">
+         
+      </div>
+      
+      <input type="color" id="envColor" value="#ff0000" style="width: 50px; height: 50px; border: 0;  cursor: pointer; margin: 0 0 0 10px; padding: 0; vertical-align: middle;"/>
+       <input type="text" id="tenantName" placeholder="tenantName" />
+       <input type="text" id="accountName" placeholder="AccountName" />
+      
+      <input type="submit" id="submit" class="submit action-button" value="Add Environment" style="width: 100% !important;"/>
+      
+      <br>
+      <div id="spinner-div" class="pt-5">
+        <div class="lds-dual-ring"></div>
+      </div>
+        <input type="button" id="import" class="submit action-button" value="Import file" width="100px" />
+        <input type="button" id="importURL" class="submit action-button" value="Import URL" width="100px"/>
+        <input type="button" id="export" class="submit action-button" value="Export" width="100px"/>
+  
+    </fieldset>
+  </form>
+    <table id="envs">
+           <thead>
+               <tr>
+                   <th>Environment Name</th>
+                   <th>Cloud Provider</th>
+                   <th>Account Name</th>
+                   <th>Environment Color</th>
+                   <th>Tenant Name</th>
+                   <th>Custom Label</th>    
+                   <th>Remove</th>
+               </tr>
+                </thead>
+                <tbody id="envsBody">
+                </tbody>
+    </table>
+
+</body>
